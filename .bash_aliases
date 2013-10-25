@@ -1,8 +1,10 @@
 #!/bin/bash
-
-alias rdp='rdesktop -d innovationfirst -usvradm -g1100x900'
+# Many of these will not work from outside my own network.
 
 alias ll='ls -l'
+
+# Remote desktop
+alias rdp='rdesktop -d innovationfirst -usvradm -g1100x900'
 
 # SYSxx
 alias s0='ssh root@sys00.innovationfirst.com'
@@ -26,3 +28,5 @@ alias slimer='ssh root@slimer'
 alias ray='ssh root@ray'
 alias nfsen='ssh root@nfsen'
 
+# My servers
+alias lr2='ssh aolsen@lr2.com'
