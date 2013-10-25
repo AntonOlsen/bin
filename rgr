@@ -3,6 +3,7 @@
 
 find -regextype posix-egrep \
     '(' -type d -name '.svn' -prune ')' -or \
+    '(' -type d -name '.git' -prune ')' -or \
     -type f \
     -not -regex '.*\.(dot|gif|ico|jpeg|jpg|mid|pdf|pem|plc|psd)$' \
     -not -regex '.*\.(ptc|pty|pyc|pyo|tif|tiff|ttf|vsd|xcf|xls|gz|zip)$' \
