@@ -15,11 +15,13 @@ if [ "$1" == "" ] ; then
    exit
 fi
 
+# Create a new key if we don't have one yet
 if [ ! -f "${KEY_PRIVATE}" ] ; then
     echo Creating the private and public keys.
     ssh-keygen -t dsa -f "${KEY_PRIVATE}" -N ''
 fi
 
+# Append they key to authorized_keys2 on the remote host
 if [ -f "${KEY_PUBLIC}" ] ; then
     cat "${KEY_PUBLIC}" | \
     ssh "${1}" "mkdir -p ~/.ssh ; cat >> .ssh/authorized_keys2; chmod -R go-rw ~/.ssh"

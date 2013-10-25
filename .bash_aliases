@@ -1,7 +1,7 @@
 #!/bin/bash
 # Many of these will not work from outside my own network.
 
-alias ll='ls -l'
+alias ll='ls -alF'
 
 # Remote desktop
 alias rdp='rdesktop -d innovationfirst -usvradm -g1100x900'

@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Script to deploy the bin files to ai new home dir
+# Script to deploy the bin files to a new home dir
 
 cd `dirname $0`
 
