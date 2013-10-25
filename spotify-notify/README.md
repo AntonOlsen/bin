@@ -6,9 +6,9 @@ Spotify-notify is a notifier for currently playing song in Spotify on a linux sy
 
 Requires python-indicate:
 
-# sudo apt-get install python-indicate
+- sudo apt-get install python-indicate
 
 Add to Startup Applications as:
 
-# python /home/aolsen/bin/spotify-notify/spotify-notify.py -s &
+- python /home/aolsen/bin/spotify-notify/spotify-notify.py -s &
 
