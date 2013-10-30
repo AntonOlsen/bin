@@ -2,6 +2,7 @@
 # Many of these will not work from outside my own network.
 
 alias ll='ls -alF'
+alias bwm='bwm-ng -d1 -ubits -t1000'
 
 # Remote desktop
 alias rdp='rdesktop -d innovationfirst -usvradm -g1100x900'
