@@ -9,3 +9,4 @@ chmod ug+rw *.sh .bash* rgr
 chmod ug+x  *.sh .bash* rgr
 
 cp .bash* ~/
+cp .vimrc ~/
