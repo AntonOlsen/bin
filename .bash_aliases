@@ -31,3 +31,4 @@ alias nfsen='ssh root@nfsen'
 
 # My servers
 alias lr2='ssh aolsen@lr2.com'
+alias lw2='ssh aolsen@w2.lr2.com'
