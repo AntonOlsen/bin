@@ -1,60 +1,35 @@
-version 5.0
-set nocompatible
-
-set expandtab
-set formatoptions=tcql
-set history=1000
-set hlsearch
-set incsearch " ...dynamically as they are typed.
-set showmatch
-set viminfo='20,\"50
-set title
+version 6.0
+if &cp | set nocp | endif
+let s:cpo_save=&cpo
+set cpo&vim
+nmap gx <Plug>NetrwBrowseX
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
+let &cpo=s:cpo_save
+unlet s:cpo_save
 set paste
-
-set hidden
-
-
-" Formatting options
-set ts=4  " Tabs are 4 spaces
-set bs=2  " Backspace over everything in insert mode
-set shiftwidth=4  " Tabs under smart indent
-set nocp incsearch
+set backspace=indent,eol,start
+set cindent
 set cinoptions=:0,p0,t0
 set cinwords=if,else,while,do,for,switch,case
+set expandtab
+set fileencodings=ucs-bom,utf-8,default,latin1
 set formatoptions=tcqr
-set cindent
-set autoindent
-set smarttab
-
-" Intuitive backspacing in insert mode
-set backspace=indent,eol,start
-
-" Search Options
+set helplang=en
+set hidden
+set hlsearch
 set ignorecase
-set smartcase
-
-" Visual
-set showmatch  " Show matching brackets.
-set mat=5  " Bracket blinking.
+set incsearch
+set listchars=eol:\\
+set printoptions=paper:letter
+set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim73,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
 set scrolloff=3
-
-set lcs=eol:\
-
+set shiftwidth=4
+set smartcase
+set smarttab
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+set tabstop=4
 set tags=~/.vim/mytags/framework
-
-syntax on
-filetype on
-filetype plugin on
-filetype indent on
-
-let php_minlines=500
-set syntax=php
-
-set wildmode=list:longest
+set title
 set wildmenu
-
-set ruler
-
-let g:debuggerPort = 9001
-
-set paste
+set wildmode=list:longest
+" vim: set ft=vim :
