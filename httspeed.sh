@@ -1,4 +1,6 @@
 #!/bin/bash
+# Created with info from here:
+# https://josephscott.org/archives/2011/10/timing-details-with-curl/
 
 cd $(dirname $0)
 
