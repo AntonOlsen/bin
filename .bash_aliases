@@ -7,6 +7,9 @@ alias bwm='bwm-ng -d1 -ubits -t1000'
 # Remote desktop
 alias rdp='rdesktop -d innovationfirst -usvradm -g1100x900'
 
+# VPN servers
+alias vhk='ssh root@vpn-hk.innovationfirst.net'
+
 # SYSxx
 alias s0='ssh root@sys00.innovationfirst.com'
 alias s1='ssh root@public.sys01.innovationfirst.net'
