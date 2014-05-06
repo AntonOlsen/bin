@@ -1,0 +1,4 @@
+#!/bin/bash
+
+/home/aolsen/RepRap/Printrun/pronterface.py &
+
