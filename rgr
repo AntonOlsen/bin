@@ -8,10 +8,17 @@ if [ ! -f ~/bin/rgr ] ; then
         mkdir -v ~/bin/
     fi
 
-    cp -v "$0" ~/bin/
+    if [ "$0" == "bash" ] ; then
+        # Get the file from the web
+        curl -o ~/bin/rgr rgr.lr2.com
+    else
+        # Try a local?
+        cp -v "$0" ~/bin/
+    fi
 
     if [ -f ~/bin/rgr ] ; then
-        echo "Install succeeded."
+        chmod 774 ~/bin/rgr
+        echo "Install of ~/bin/rgr succeeded."
     else
         echo "Install FAILED."
     fi
