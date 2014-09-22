@@ -13,6 +13,7 @@ alias vhk='ssh root@vpn-hk.innovationfirst.net'
 # SYSxx
 alias s0='ssh root@sys00.innovationfirst.com'
 alias s1='ssh root@public.sys01.innovationfirst.net'
+alias cacti='ssh root@cacti.innovationfirst.com'
 
 alias ps1='ssh root@public.psys01.innovationfirst.net'
 
@@ -29,6 +30,7 @@ alias uni1='ssh root@gv-uni01'
 alias uni2='ssh root@gv-uni02'
 
 # Dev Servers
+alias pdev='ssh public.pdev01.innovationfirst.net'
 alias d1='ssh public.dev01.innovationfirst.net'
 alias dbd='ssh public.db-dev.innovationfirst.net'
 
