@@ -1,10 +1,33 @@
 #!/bin/bash
-# Recursive grep that avoids .svn and obvious binary files.
+# Recursive grep that avoids .svn, .git, garbage and obvious binary files.
+
+if [ ! -f ~/bin/rgr ] ; then
+    echo 'Installing rgr into ~/bin/'
+
+    if [ ! -d ~/bin/ ] ; then
+        mkdir -v ~/bin/
+    fi
+
+    cp -v "$0" ~/bin/
+
+    if [ -f ~/bin/rgr ] ; then
+        echo "Install succeeded."
+    else
+        echo "Install FAILED."
+    fi
+    exit
+fi
+
 
 find -regextype posix-egrep \
-    '(' -type d -name '.svn' -prune ')' -or \
-    '(' -type d -name '.git' -prune ')' -or \
+    '(' -type d -name '.git'    -prune ')' -or \
+    '(' -type d -name '.svn'    -prune ')' -or \
+    '(' -type d -name 'cache'   -prune ')' -or \
+    '(' -type d -name 'csv'     -prune ')' -or \
+    '(' -type d -name 'media'   -prune ')' -or \
+    '(' -type d -name 'session' -prune ')' -or \
     -type f \
     -not -regex '.*\.(dot|gif|ico|jpeg|jpg|mid|pdf|pem|plc|psd)$' \
-    -not -regex '.*\.(ptc|pty|pyc|pyo|tif|tiff|ttf|vsd|xcf|xls|gz|zip)$' \
-    -exec grep -H -n --color -E "$@" {} ';' 
+    -not -regex '.*\.(ptc|pty|pyc|pyo|tif|tiff|ttf|vsd|xcf|xls)$' \
+    -exec grep -H -n --color -E "$@" {} ';'
+
