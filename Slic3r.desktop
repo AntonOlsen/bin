@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Slic3r
+GenericName=3D Printer Interface
+Comment=Slices parts for your 3D printer
+Icon=/home/aolsen/Slic3r/res/Slic3r.png
+Exec=/home/aolsen/Slic3r/bin/slic3r
+Path=/home/aolsen/Slic3r/
+StartupNotify=true
+Terminal=false
+Categories=GNOME;GTK;Utility;Graphics;3DGraphics;
+MimeType=text/plain;application/octet-stream;application/sla;
