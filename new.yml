@@ -1,0 +1,111 @@
+- hosts: localhost
+  tasks:
+
+    - stat: path=/etc/apt/sources.list.d/webupd8team-atom-trusty.list
+      register: atom
+    - name: Add the Atom repo
+      apt_repository: repo='ppa:webupd8team/atom' state=present
+      when: atom.stat.exists == False
+
+    - stat: path=/etc/apt/sources.list.d/google-chrome.list
+      register: google
+    - name: Add the google repo
+      apt_repository: repo='deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' state=present
+      when: google.stat.exists == False
+
+    - stat: path=/etc/apt/sources.list.d/owncloud.list
+      register: owncloud
+    - name: Add the ownCloud repo
+      apt_repository: repo='deb [arch=amd64] http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/Ubuntu_16.04/ /' state=present
+      when: owncloud.stat.exists == False
+
+    - stat: path=/etc/apt/sources.list.d/virtualbox.list
+      register: virtualbox
+    - name: Add the VirtualBox repo
+      apt_repository: repo='deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian xenial contrib' state=present
+      when: virtualbox.stat.exists == False
+
+    - name: apt-key update
+      command: 'apt-key update'
+    - name: apt-get update
+      apt: update_cache=true
+
+    - name: Install required packages
+      apt: pkg={{ item }} state=latest update_cache=true cache_valid_time=3600
+      with_items:
+        - apg
+        - arduino
+        - arduino-core
+        - atom
+        - build-essential
+        - bwm-ng
+        - compizconfig-settings-manager
+        - dconf-editor
+        - default-jre
+        - default-jre-headless
+        - dhcping
+        - dkms
+        - dos2unix
+        - git
+        - gimp
+        - gimp-data
+        - google-chrome-stable
+        - gparted
+        - id3
+        - inkscape
+        - iperf
+        - java-common
+        - javascript-common
+        - mailutils
+        - mysql-client
+        - nfs-common
+        - nmap
+        - ntpdate
+        - openssh-server
+        - owncloud-client
+        - php-cli
+        - php-common
+        - php-curl
+        - php-json
+        - php-mysql
+        - php-readline
+        - python
+        - python-pip
+        - rdesktop
+        - samba-common
+        - samba-common-bin
+        - shutter
+        - snmp
+        - subversion
+        - synergy
+        - traceroute
+        - unzip
+        - update-manager-core
+        - vim
+        - virtualbox-5.1
+        - vlc
+        - vlc-data
+        - vmfs-tools
+        - whois
+        - wireshark
+        - wireshark-common
+        - zip
+       
+    - name: Upgrade all the things
+      apt: upgrade=dist
+
+    - name: Make vim the default editor
+      file: src=/usr/bin/vim.basic dest=/etc/alternatives/editor owner=root group=root state=link
+
+    - name: Add some aliases
+      lineinfile: dest=/root/.bash_aliases create=yes state=present line={{item}}
+      with_items:
+      - "alias ll='ls -alF'"
+      - "alias bwm='bwm-ng -u bits  -t 2000'"
+
+    - name: Add some aliases
+      lineinfile: dest=/home/aolsen/.bash_aliases create=yes state=present line={{item}}
+      with_items:
+      - "alias ll='ls -alF'"
+      - "alias bwm='bwm-ng -u bits  -t 2000'"
+
