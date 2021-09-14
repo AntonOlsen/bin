@@ -15,7 +15,13 @@ DB_PASS="vexFTWdb"
 DATE=$(date +%Y-%m-%d--%H:%M)
 HOSTNAME=$(cat /etc/hostname)
 
-DIR_BASE="/root/mysqldump/$HOSTNAME"
+if [ -d /mnt/mysqldump ] ; then
+    BASE="/mnt/mysqldump"
+else
+    BASE="/root/mysqldump"
+fi
+
+DIR_BASE="$BASE/$HOSTNAME"
 DIR_DEST="$DIR_BASE/$DATE/"
 
 if [ -d $DIR_DEST ] ; then
